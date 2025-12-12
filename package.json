@@ -1,0 +1,45 @@
+{
+  "name": "odin-ui",
+  "version": "0.1.0",
+  "description": "A collection of reusable UI components built from The Odin Project curriculum",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "jest",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test",
+    "demo": "serve demo"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "dropdown",
+    "carousel",
+    "form-validation",
+    "odin-project"
+  ],
+
+  "author": "Diogo Carrola",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogocarrola/odin-ui-package.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diogocarrola/odin-ui-package/issues"
+  },
+  "homepage": "https://github.com/diogocarrola/odin-ui-package#readme",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {},
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
