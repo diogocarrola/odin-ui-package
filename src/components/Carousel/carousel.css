@@ -1,0 +1,62 @@
+.odin-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.odin-carousel-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.odin-carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+
+.odin-carousel-slide.active {
+  display: block;
+}
+
+.odin-carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.odin-carousel-control.prev {
+  left: 10px;
+}
+
+.odin-carousel-control.next {
+  right: 10px;
+}
+
+.odin-carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.odin-carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border: none;
+}
+
+.odin-carousel-indicator.active {
+  background: white;
+}
