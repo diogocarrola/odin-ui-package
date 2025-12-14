@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin UI Components Demo</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <style>
+        .component-demo {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+        .component-demo h3 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Odin UI Components</h1>
+            <p>A collection of reusable UI components from The Odin Project curriculum</p>
+        </header>
+
+        <main>
+            <section class="component-demo" id="dropdown-demo">
+                <h3>Dropdown Component</h3>
+                <div class="odin-dropdown">
+                    <button class="odin-dropdown-toggle">Click me</button>
+                    <div class="odin-dropdown-menu">
+                        <a href="#" class="odin-dropdown-item">Option 1</a>
+                        <a href="#" class="odin-dropdown-item">Option 2</a>
+                        <a href="#" class="odin-dropdown-item">Option 3</a>
+                    </div>
+                </div>
+                <p>Implementation coming soon...</p>
+            </section>
+
+            <section class="component-demo" id="carousel-demo">
+                <h3>Carousel Component</h3>
+                <div class="odin-carousel">
+                    <div class="odin-carousel-track">
+                        <div class="odin-carousel-slide active">
+                            <img src="https://via.placeholder.com/600x400/007bff/ffffff?text=Slide+1" alt="Slide 1">
+                        </div>
+                        <div class="odin-carousel-slide">
+                            <img src="https://via.placeholder.com/600x400/28a745/ffffff?text=Slide+2" alt="Slide 2">
+                        </div>
+                        <div class="odin-carousel-slide">
+                            <img src="https://via.placeholder.com/600x400/dc3545/ffffff?text=Slide+3" alt="Slide 3">
+                        </div>
+                    </div>
+                    <button class="odin-carousel-control prev">‹</button>
+                    <button class="odin-carousel-control next">›</button>
+                    <div class="odin-carousel-indicators">
+                        <button class="odin-carousel-indicator active"></button>
+                        <button class="odin-carousel-indicator"></button>
+                        <button class="odin-carousel-indicator"></button>
+                    </div>
+                </div>
+                <p>Implementation coming soon...</p>
+            </section>
+
+            <section class="component-demo" id="form-demo">
+                <h3>Form Validator Component</h3>
+                <form class="odin-form" id="demo-form">
+                    <div class="odin-form-control">
+                        <label for="name">Name (required)</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="odin-error-message"></span>
+                    </div>
+                    <div class="odin-form-control">
+                        <label for="email">Email (required)</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="odin-error-message"></span>
+                    </div>
+                    <div class="odin-form-control">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                        <span class="odin-error-message"></span>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+                <p>Implementation coming soon...</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>MIT Licensed | Built as part of The Odin Project curriculum</p>
+        </footer>
+    </div>
+
+    <script src="../dist/index.umd.js"></script>
+    <script src="js/demo.js"></script>
+</body>
+</html>
