@@ -32,5 +32,3 @@ export class Dropdown {
     console.log('Cleaning up dropdown - implement me!');
   }
 }
-
-export { Dropdown };

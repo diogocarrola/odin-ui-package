@@ -38,5 +38,3 @@ export class FormValidator {
     console.log('Cleaning up form validator - implement me!');
   }
 }
-
-export { FormValidator };

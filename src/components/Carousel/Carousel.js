@@ -42,5 +42,3 @@ export class Carousel {
     console.log('Cleaning up carousel - implement me!');
   }
 }
-
-export { Carousel };
