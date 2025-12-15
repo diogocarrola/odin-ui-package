@@ -11,34 +11,64 @@ export class Carousel {
     
     this.currentSlide = 0;
     this.slides = [];
+    this._timer = null;
+    this._onVisibilityChange = this._onVisibilityChange.bind(this);
     this.init();
   }
   
   init() {
-    console.log('Carousel initialized - implement me!');
+    if (!this.element) return;
+    // Find slides (support different markup)
+    this.slides = Array.from(this.element.querySelectorAll('.carousel-slide'));
+    if (this.slides.length === 0) this.slides = Array.from(this.element.querySelectorAll('.slide'));
+    this.updateSlides();
+    if (this.options.autoplay) this.play();
+    document.addEventListener('visibilitychange', this._onVisibilityChange);
   }
   
   next() {
-    console.log('Next slide - implement me!');
+    if (this.slides.length === 0) return;
+    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    this.updateSlides();
   }
   
   prev() {
-    console.log('Previous slide - implement me!');
+    if (this.slides.length === 0) return;
+    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    this.updateSlides();
   }
   
   goToSlide(index) {
-    console.log('Go to slide', index, '- implement me!');
+    if (this.slides.length === 0) return;
+    const i = Math.max(0, Math.min(index, this.slides.length - 1));
+    this.currentSlide = i;
+    this.updateSlides();
   }
   
   play() {
-    console.log('Start autoplay - implement me!');
+    if (this._timer) return;
+    this._timer = setInterval(() => this.next(), this.options.interval);
   }
   
   pause() {
-    console.log('Pause autoplay - implement me!');
+    if (this._timer) {
+      clearInterval(this._timer);
+      this._timer = null;
+    }
   }
   
   destroy() {
-    console.log('Cleaning up carousel - implement me!');
+    this.pause();
+    document.removeEventListener('visibilitychange', this._onVisibilityChange);
+  }
+
+  updateSlides() {
+    this.slides.forEach((s, i) => {
+      s.classList.toggle('active', i === this.currentSlide);
+    });
+  }
+
+  _onVisibilityChange() {
+    if (document.hidden) this.pause(); else if (this.options.autoplay) this.play();
   }
 }
