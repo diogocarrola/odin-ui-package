@@ -9,26 +9,40 @@ export class Dropdown {
     };
     
     this.isOpen = false;
+    this._toggleHandler = this.toggle.bind(this);
+    this._onDocumentClick = this._onDocumentClick.bind(this);
     this.init();
   }
   
   init() {
-    console.log('Dropdown initialized - implement me!');
+    if (!this.element) return;
+    this.toggleBtn = this.element.querySelector('.odin-dropdown-toggle') || this.element;
+    this.menu = this.element.querySelector('.odin-dropdown-menu');
+    if (this.toggleBtn) this.toggleBtn.addEventListener('click', this._toggleHandler);
+    if (this.options.closeOnClickOutside) document.addEventListener('click', this._onDocumentClick);
   }
   
   open() {
-    console.log('Opening dropdown - implement me!');
+    if (this.menu) this.menu.classList.add('show');
+    this.isOpen = true;
   }
   
   close() {
-    console.log('Closing dropdown - implement me!');
+    if (this.menu) this.menu.classList.remove('show');
+    this.isOpen = false;
   }
   
   toggle() {
-    console.log('Toggling dropdown - implement me!');
+    this.isOpen ? this.close() : this.open();
   }
   
   destroy() {
-    console.log('Cleaning up dropdown - implement me!');
+    if (this.toggleBtn) this.toggleBtn.removeEventListener('click', this._toggleHandler);
+    document.removeEventListener('click', this._onDocumentClick);
+  }
+
+  _onDocumentClick(e) {
+    if (!this.element) return;
+    if (!this.element.contains(e.target) && this.isOpen) this.close();
   }
 }
