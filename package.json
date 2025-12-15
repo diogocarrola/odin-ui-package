@@ -23,7 +23,6 @@
     "form-validation",
     "odin-project"
   ],
-
   "author": "Diogo Carrola",
   "license": "MIT",
   "repository": {
@@ -44,8 +43,10 @@
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@testing-library/jest-dom": "^6.9.1",
+    "babel-jest": "^30.2.0",
     "eslint": "^9.39.1",
     "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
     "rollup": "^2.79.2",
     "rollup-plugin-terser": "^7.0.2",
     "serve": "^14.2.5",
