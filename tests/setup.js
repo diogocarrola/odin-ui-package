@@ -1,6 +1,6 @@
-import 'whatwg-fetch';
+require('whatwg-fetch');
 
-// Setup basic DOM for testing
+// Setup basic DOM for testing (jsdom provides document)
 global.document.body.innerHTML = `
     <div id="test-dropdown"></div>
     <div id="test-carousel"></div>
