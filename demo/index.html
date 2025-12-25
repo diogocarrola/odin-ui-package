@@ -67,21 +67,41 @@
 
             <section class="component-demo" id="form-demo">
                 <h3>Form Validator Component</h3>
-                <form class="odin-form" id="demo-form">
+                <form class="odin-form" id="demo-form" novalidate>
                     <div class="odin-form-control">
                         <label for="name">Name (required)</label>
-                        <input type="text" id="name" name="name" required>
-                        <span class="odin-error-message"></span>
+                        <input type="text" id="name" name="name" required minlength="2">
+                        <span class="odin-error-message" aria-hidden="true"></span>
                     </div>
                     <div class="odin-form-control">
                         <label for="email">Email (required)</label>
                         <input type="email" id="email" name="email" required>
-                        <span class="odin-error-message"></span>
+                        <span class="odin-error-message" aria-hidden="true"></span>
                     </div>
                     <div class="odin-form-control">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                        <span class="odin-error-message"></span>
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                            <option value="">Select country</option>
+                            <option>Portugal</option>
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                        </select>
+                        <span class="odin-error-message" aria-hidden="true"></span>
+                    </div>
+                    <div class="odin-form-control">
+                        <label for="postal">Postal Code</label>
+                        <input type="text" id="postal" name="postal" pattern="^\\d{5}$" placeholder="12345">
+                        <span class="odin-error-message" aria-hidden="true"></span>
+                    </div>
+                    <div class="odin-form-control">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" minlength="6">
+                        <span class="odin-error-message" aria-hidden="true"></span>
+                    </div>
+                    <div class="odin-form-control">
+                        <label for="confirm">Confirm Password</label>
+                        <input type="password" id="confirm" name="confirm" data-match="#password">
+                        <span class="odin-error-message" aria-hidden="true"></span>
                     </div>
                     <button type="submit">Submit</button>
                 </form>
