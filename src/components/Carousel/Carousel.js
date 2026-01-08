@@ -21,19 +21,20 @@ export class Carousel {
 
   init() {
     if (!this.element) return;
-    // Find slides (support different markup)
-    this.slides = Array.from(this.element.querySelectorAll('.carousel-slide'));
+    // Find slides (support different markup and odin-prefixed classes)
+    this.slides = Array.from(this.element.querySelectorAll('.carousel-slide, .odin-carousel-slide'));
     if (this.slides.length === 0) this.slides = Array.from(this.element.querySelectorAll('.slide'));
     this.updateSlides();
     if (this.options.autoplay) this.play();
     document.addEventListener('visibilitychange', this._onVisibilityChange);
-    // accessibility: make focusable region and describe as carousel
-    this.element.setAttribute('role', 'region');
-    this.element.setAttribute('aria-roledescription', 'carousel');
-    if (!this.element.hasAttribute('tabindex')) this.element.setAttribute('tabindex', '0');
-    this.element.addEventListener('keydown', this._onKeydown);
-    this.element.addEventListener('focusin', this._onFocusIn);
-    this.element.addEventListener('focusout', this._onFocusOut);
+    // accessibility: attach region to the element that holds slides
+    this._root = this.element.querySelector('.carousel, .odin-carousel') || this.element;
+    this._root.setAttribute('role', 'region');
+    this._root.setAttribute('aria-roledescription', 'carousel');
+    if (!this._root.hasAttribute('tabindex')) this._root.setAttribute('tabindex', '0');
+    this._root.addEventListener('keydown', this._onKeydown);
+    this._root.addEventListener('focusin', this._onFocusIn);
+    this._root.addEventListener('focusout', this._onFocusOut);
   }
 
   next() {
