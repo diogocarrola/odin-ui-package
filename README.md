@@ -38,6 +38,14 @@ const { Dropdown } = require('odin-ui');
 - **Carousel**: Responsive image carousel with navigation controls
 - **FormValidator**: Real-time form validation with custom rules
 
+## ♿ Accessibility
+
+- Components include ARIA attributes and keyboard support by default:
+  - `Dropdown`: `aria-haspopup`, `aria-expanded`, `aria-controls`, `role="menu"`, keyboard navigation (ArrowUp/ArrowDown/Escape).
+  - `Carousel`: `role="region"`, `aria-roledescription="carousel"`, focusable, ArrowLeft/ArrowRight navigation, Space toggles autoplay, pause-on-focus.
+
+These features improve keyboard and screen reader usability; please test in your target environments.
+
 ## 🏗️ Project Structure
 
 
@@ -93,6 +101,20 @@ Start demo server:
 ```bash
 npm run demo
 ```
+
+Open `demo/index.html` in the browser (the demo server serves it at http://localhost:3000) to try the components. The demo includes keyboard usage hints.
+
+## 📦 Publishing
+
+Before publishing, bump the `version` in `package.json`, update `CHANGELOG.md`, and run:
+
+```bash
+npm run build
+npm test
+npm run release
+```
+
+The repository includes a GitHub Actions workflow (`.github/workflows/ci.yml`) that runs lint, tests and build on push/PR to `main`.
 
 ## 📝 License
 
