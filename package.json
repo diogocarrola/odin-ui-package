@@ -11,6 +11,7 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test": "jest",
+    "release": "npm publish --access public",
     "prepare": "npm run build",
     "prepublishOnly": "npm run test",
     "demo": "serve demo"
