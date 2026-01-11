@@ -3,6 +3,11 @@ export { Dropdown } from './components/Dropdown/Dropdown.js';
 export { Carousel } from './components/Carousel/Carousel.js';
 export { FormValidator } from './components/FormValidator/FormValidator.js';
 
+// Import component styles so Rollup can bundle/extract CSS
+import './components/Dropdown/dropdown.css';
+import './components/Carousel/carousel.css';
+import './components/FormValidator/formValidator.css';
+
 // Factory functions for convenience
 export function createDropdown(selector, options = {}) {
   const element = typeof selector === 'string' 
